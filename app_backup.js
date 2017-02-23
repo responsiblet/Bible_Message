@@ -1,6 +1,6 @@
 var twilio = require("twilio");
-var accountSid = 'AC2076b5f5748e46a5846e760645568f9a';
-var authToken = 'd3495282e5e94a57549ed38b3000bde8';
+var accountSid = '';
+var authToken = '';
 var client = new twilio.RestClient(accountSid, authToken); 
 client.messages.create({ 
     body: 'Greetings earthling, this is the TwilioSmsBot ;)', 
