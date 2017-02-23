@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bible ASV</title></head>
+<body>
+<script src="kjv_bible_array.json"></script>
+<script>
+var book = 1;
+var chapter = 1;
+var verse = 1;
+var text = "";
+var rand = Math.floor((Math.random() * 31102) + 1);
+for (var i = 0; i<kjv_bible.length; i++){
+	if(kjv_bible[i].model==="bible.verse" && kjv_bible[i].pk === rand)
+		document.write(kjv_bible[i].fields.text);
+}
+setTimeout("location.reload(true);", 7500);
+//document.write(kjv_bible[0].model);
+</script>
+</body>
+</html>

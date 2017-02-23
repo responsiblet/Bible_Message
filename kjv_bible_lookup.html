@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bible ASV</title></head>
+<body>
+<script src="kjv_bible_array.json"></script>
+<script>
+var book = 0;
+var chapter = 0;
+var verse = 0;
+var text = "";
+var bookName = "";
+var verseNumber = 0;
+var bibleVersePk = 0;
+var bibleChapterPk = 0;
+var bibleBookPk = 0;
+var bibleBookNumber = 0;
+var bibleChapterNumber = 0;
+var bibleVerseText = "";
+var rand = Math.floor((Math.random() * 31102) + 1);
+
+
+for (var i = 0; i<kjv_bible.length; i++){
+	if(kjv_bible[i].model==="bible.verse" && kjv_bible[i].pk === rand){
+		//document.write("rand is: " + rand);
+		verseNumber = kjv_bible[i].fields.number;
+		chapter = kjv_bible[i].fields.chapter;
+		//document.write("chapter sequential is: " + chapter);
+		//document.write("verseNumber is : "+verseNumber+" - ");
+		bibleVerseText = kjv_bible[i].fields.text;
+		//document.write("bible verse text: " + kjv_bible[i].fields.text);
+	}
+}
+
+for (var i = 0; i<kjv_bible.length; i++){
+	if(kjv_bible[i].model==="bible.chapter" && kjv_bible[i].pk===chapter){
+		bibleBookNumber = kjv_bible[i].fields.book;
+		//document.write("book number is: " + bibleBookNumber);
+		bibleChapterNumber = kjv_bible[i].fields.number;
+		//document.write("bibleChapterNumber is "+bibleChapterNumber);
+	}
+}
+for (var i = 0; i<kjv_bible.length; i++){
+	if(kjv_bible[i].model==="bible.book" && kjv_bible[i].pk===bibleBookNumber){
+		bookName = kjv_bible[i].fields.name;
+		//document.write("bookName is: "+ bookName);
+		//print out the Bible verse with Book, Chapter, Verse Number, and Verse Text:
+		document.write(bibleVerseText + " - " + bookName + " " + bibleChapterNumber + ":" + verseNumber );
+	}
+}
+
+//setTimeout("location.reload(true);", 7500);
+//document.write(kjv_bible[0].model);
+</script>
+</body>
+</html>
