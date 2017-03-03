@@ -11,8 +11,8 @@ fs.readFile('kjv_bible.json', 'utf8', function (err, data) {
   
   
 });
-var accountSid = '';
-var authToken = '';
+var accountSid = 'AC2076b5f5748e46a5846e760645568f9a';
+var authToken = 'd3495282e5e94a57549ed38b3000bde8';
 //require the Twilio module and create a REST client
 var client = require('twilio')(accountSid, authToken); 
 
@@ -72,7 +72,8 @@ for (var i = 0; i<kjv_bible.length; i++){
     bibleMessage ='"'+ bibleVerseText + '"'+" - " + bookName + " " + bibleChapterNumber + ":" + verseNumber;
   }
 }
-    var to = '+13127726856';
+    var to = '+12174918770';
+    var tos = ['+12174918770','+12178837519', '+12174732371'];
     var from = '+12178826175';
     var body = getMessage();
     //console.log("bibleMessage is" + bibleVerseText + " - " + bookName + " " + bibleChapterNumber + ":" + verseNumber );
@@ -81,15 +82,16 @@ for (var i = 0; i<kjv_bible.length; i++){
     //console.log("bibleMessage is" + bibleVerseText + " - " + bookName + " " + bibleChapterNumber + ":" + verseNumber );
     console.log("getMessage() returns: " + getMessage() ) ;
     
-
-    client.messages.create({
-        to: to,
-        from: from,
-        body: body,
-    }, function (err, message) {
-        console.log("message1 sent");
-        
-    }); 
+    for(var i = 0; i<3; i++){
+	    client.messages.create({
+	        to: tos[i],
+	        from: from,
+	        body: body,
+	    }, function (err, message) {
+	        console.log("message sent");
+	        
+	    });
+	}
 
     
 });
