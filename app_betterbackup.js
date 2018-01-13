@@ -21,8 +21,8 @@ var client = new twilio.RestClient(accountSid, authToken);
 
 client.messages.create({ 
     body: "a"+obj.toString()+"c", 
-    to: '+12174918770',  // Number that receives the SMS 
-    from: '+12178826175' // Purchased Twilio number that send the SMS 
+    to: '+123456789',  // Number that receives the SMS 
+    from: '+123456789' // Purchased Twilio number that send the SMS 
 }, 
 function(err, message) { 
     console.log(message.sid); 
