@@ -72,9 +72,9 @@ for (var i = 0; i<kjv_bible.length; i++){
     bibleMessage ='"'+ bibleVerseText + '"'+" - " + bookName + " " + bibleChapterNumber + ":" + verseNumber;
   }
 }
-    var to = '+12174918770';
-    var tos = ['+12174918770','+12178837519', '+12174732371'];
-    var from = '+12178826175';
+    var to = '+123456789';
+    var tos = ['+123456789','+x', '+x'];
+    var from = '+123456789';
     var body = getMessage();
     //console.log("bibleMessage is" + bibleVerseText + " - " + bookName + " " + bibleChapterNumber + ":" + verseNumber );
     //console.log("getMessage() returns: " + getMessage() ) ;
